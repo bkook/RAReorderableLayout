@@ -29,7 +29,7 @@ class HorizontalViewController: UIViewController, RAReorderableLayoutDelegate, R
         let aAsciiCode = aScalars[aScalars.startIndex].value
         let zAsciiCode = zScalars[zScalars.startIndex].value
         books = (aAsciiCode...zAsciiCode)
-            .flatMap(UnicodeScalar.init)
+            .compactMap(UnicodeScalar.init)
             .map(Character.init)
             .enumerated()
             .map {
@@ -69,7 +69,7 @@ class HorizontalViewController: UIViewController, RAReorderableLayoutDelegate, R
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, 20.0, 0, 20.0)
+        return UIEdgeInsets(top: 0, left: 20.0, bottom: 0, right: 20.0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -93,7 +93,7 @@ class HorizontalViewController: UIViewController, RAReorderableLayoutDelegate, R
     }
     
     func scrollTrigerEdgeInsetsInCollectionView(_ collectionView: UICollectionView) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, 50, 0, 50)
+        return UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
     }
     
     func scrollSpeedValueInCollectionView(_ collectionView: UICollectionView) -> CGFloat {
